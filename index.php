@@ -1,3 +1,3 @@
 <?php 
-  echo "Bem vindo a PHP"
+  echo "Bem vindo a PHP";
 ?>
