@@ -1,0 +1,13 @@
+
+Para atualizar o repositorio no github
+
+git add .
+
+git pull origin master
+
+git status
+
+git commit -m "descrição do commit"
+
+git push origin master
+
