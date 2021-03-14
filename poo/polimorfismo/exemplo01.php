@@ -7,7 +7,7 @@ abstract class Animal{
     } 
 
     public function andar(){
-        return "Andar";
+        return "Anda";
         }
 }
 
@@ -29,7 +29,7 @@ class Passaro extends Animal{
         return "Pia";
     }
     public function andar(){
-        return "voar";
+        return "voa - " . parent::andar();
     }
 }
 
