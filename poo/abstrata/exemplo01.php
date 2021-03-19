@@ -8,7 +8,7 @@ public function trocarMarcha($marcha);
 }
 
 // Uma classe abstrata nao pode ser instanciada
-// Ela e usada  para definir o que os objetos  devem ter e fazer 
+// Ela e usada  para definir o que os objetos  devem ter e devem fazer 
 abstract class Automovel implements Veiculo {
 
     public function acelerar($velocidade){
