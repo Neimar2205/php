@@ -6,10 +6,10 @@ $conn = new mysqli("localhost", "neimar", "Nmysql", "dbphp7");
     // connect_error exibi qualquer erro nos paranmetros de conexo.
     if($conn-> connect_error){
     
-        echo "error". $conn->connect_error;  
+        echo "error: ". $conn->connect_error;  
     }
 
-// o metodo "prepare" prepara todos os comandos para Create-update-delete no banco.
+// o metodo "prepare" prepara todos os comandos, Create-update-delete no banco.
     $stmt = $conn->prepare("INSERT INTO tb_usuarios (deslogin, dessenha) VALUES (?, ?)");
     $stmt->bind_param("ss", $login, $pass);
 
