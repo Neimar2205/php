@@ -14,11 +14,11 @@ switch(session_status()){
     break;
 
     case PHP_SESSION_NONE;
-    echo "As sessões estiverem habilitadas, mas nenhuma existir.";
+    echo "As sessões estiverem habilitadas, mas nenhuma existi.";
     break;
 
     case PHP_SESSION_ACTIVE; 
-    echo "As sessões estiverem habilitadas, e uma existir.";
+    echo "As sessões estiverem habilitadas, e uma existi.";
     break;
     
 }
