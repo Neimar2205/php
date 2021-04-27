@@ -40,9 +40,17 @@ echo $usuario; */
 //$aluno->setDessenha("senhaAluno1");
 //$aluno->insert();
 
-// Usando o metodo construtor definido na classe usuario.
-$aluno = new Usuario("aluno1", "senhaAluno1");
-$aluno->insert();
-echo $aluno;
+//// Usando o metodo construtor definido na classe usuario. Para inserir dados na tabela.
+//$aluno = new Usuario("aluno1", "senhaAluno1");
+//$aluno->insert();
+//echo $aluno;
+
+// Atualiza os dados cadastrais de um determinadado usurio
+$usuario = new Usuario();
+$usuario->loadById(12);
+$usuario->update("Formado","preca123");
+
+echo ($usuario);
+
 
 ?>
