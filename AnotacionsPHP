@@ -1,7 +1,7 @@
 
 Para atualizar o repositorio no github
 
-git add .
+git add --all
 
 git pull origin master
 
