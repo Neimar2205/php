@@ -18,7 +18,7 @@ foreach($usuarios[0] as $key => $value){
 
  $file = fopen("usuraios.csv", "w+");
   // Escreve/ler o cabeçalho do arquivo gerado: Ler se o arquivo ja existir. Escreve/cria se no existir.
- fwrite($file,implode(",", $headers));
+ fwrite($file,implode(",", $headers) . "\r\n");
 
     // Percorre o objeto $usuarios e retorna as linhas
  foreach ($usuarios as $row) {
@@ -31,11 +31,9 @@ foreach($usuarios[0] as $key => $value){
         // Escreve os valores encontradas nos campos(de cada coluna) no arquivo
         fwrite($file, implode(",", $data) . "\r\n");
 
-
  } //End Foreach de linha
  
  fclose($file);
-
 
 
  //print_r($headers);
