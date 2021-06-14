@@ -7,7 +7,7 @@
 
  //var_dump($content);
 
- // Aqui ocorre a iterpretaçao do conteudo. 
+ // Aqui ocorre a interpretaçao do conteudo. 
  //Transforma o conteudo em um arquivo real(define o tamanho, tipo, tipo de imagem)
  $parse = parse_url($link);
 
