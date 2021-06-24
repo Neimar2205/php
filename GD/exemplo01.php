@@ -18,6 +18,7 @@ imagestring($image, 5, 20, 20, "Curso PHP 7", $red);
 
 
 // Esta função tem que ser correspondente ao formato definido no header.
+// aqui e onde o php faz a pintura.
 imagepng($image);
 
 imagedestroy($image);
