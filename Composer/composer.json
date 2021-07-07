@@ -1,0 +1,15 @@
+{
+    "name": "cursohcode/php7",
+    "description": "projeto do curso hcode de php7 da plataforma udemy",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Neimar2205",
+            "email": "neimar.jdlg@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog":"1.0.*"
+    }
+}
