@@ -300,6 +300,17 @@ class ClassLoader
     public function register($prepend = false)
     {
         spl_autoload_register(array($this, 'loadClass'), true, $prepend);
+
+        if (null === $this->vendorDir) {
+            return;
+        }
+
+        if ($prepend) {
+            self::$registeredLoaders = array($this->vendorDir => $this) + self::$registeredLoaders;
+        } else {
+            unset(self::$registeredLoaders[$this->vendorDir]);
+            self::$registeredLoaders[$this->vendorDir] = $this;
+        }
     }
 
     /**
@@ -314,7 +325,7 @@ class ClassLoader
      * Loads the given class or interface.
      *
      * @param  string    $class The name of the class
-     * @return bool|null True if loaded, null otherwise
+     * @return true|null True if loaded, null otherwise
      */
     public function loadClass($class)
     {
@@ -323,6 +334,8 @@ class ClassLoader
 
             return true;
         }
+
+        return null;
     }
 
     /**
