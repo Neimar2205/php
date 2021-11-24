@@ -91,7 +91,7 @@ if (!$mail->send()) {
     $path = '{imap.gmail.com:993/imap/ssl}[Gmail]/Sent Mail';
 
     //Tell your server to open an IMAP connection using the same username and password as you used for SMTP
-    $imapStream = imap_open($pathS, $mail->Username, $mail->Password);
+    $imapStream = imap_open($path, $mail->Username, $mail->Password);
 
     $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
     imap_close($imapStream);
