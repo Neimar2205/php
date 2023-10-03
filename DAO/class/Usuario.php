@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 class Usuario {
-	
+
 	private $idusuario;
 	private $deslogin;
 	private $dessenha;
@@ -9,7 +9,7 @@ class Usuario {
 
 	public function __construct($login = "", $password = ""){
 		$this->setDeslogin  ($login);
-		$this->setDessenha  ($password);		
+		$this->setDessenha  ($password);
 	}
 
 	public function getIdusuario(){ return $this-> idusuario; }
@@ -17,10 +17,10 @@ class Usuario {
 
 	public function getDeslogin() { return $this-> deslogin; }
 	public function setDeslogin($value) { $this->deslogin  = $value; }
-	
+
 	public function getDessenha(){	return $this-> dessenha; }
 	public function setDessenha($value){ $this->dessenha  = $value; }
-	
+
 	public function getDtcadastro() { return $this-> dtcadastro;	}
 	public function setDtcadastro($value) { $this->dtcadastro  = $value; }
 
@@ -39,17 +39,17 @@ class Usuario {
 		$sql = new Sql();
 
 		// Aqui o Sql "SELECT * FROM tb_usuarios WHERE idusuario = :ID" e o paramentro $rawQuery
-		// e o "array(":ID"=$id)" e o $params = array() do metodo 'public function select' da class Sql-responsalvel por acessar o DB. 
+		// e o "array(":ID"=$id)" e o $params = array() do metodo 'public function select' da class Sql-responsalvel por acessar o DB.
 		$results = $sql->select("SELECT * FROM tb_usuarios WHERE idusuario = :ID", array(":ID"=>$id));
-		//verifica se existe pelo menos 1 registro no retorno. 
-	
+		//verifica se existe pelo menos 1 registro no retorno.
 		if(isset($results[0])){
 		// if (count($results)> 0)  //outra forma de verificar se tem ao menos um resultado
 		$this->setDatas($results[0]);
-
 		}
 	}
 
+	// Método para lista todos os dados da tabela atendendo ou não uma determinada condição.
+	// Este Metodo é "Static", e pode ser chamado sem a necessidade de instanciar o objeto Usuario.
 	public static function getList(){
 		$sql = new Sql();
 		return $sql->select("SELECT * FROM tb_usuarios ORDER BY deslogin;");
@@ -63,17 +63,16 @@ class Usuario {
 	}
 
 	//// Busca na tabela "Usuarios" o usuario logado/autenticado correspondente ao login definido como parametros
-		public function login($login, $password){		
+		public function login($login, $password){
 			$sql = new Sql();
-			//var_dump($sql);
 			$results = $sql->select("SELECT * FROM tb_usuarios WHERE deslogin = :LOGIN  AND dessenha = :PASSWORD", array(
 				":LOGIN"=>$login,
 				":PASSWORD"=>$password));
-				
+
 					// if (count($results)> 0)  //outra forma de verificar se tem ao menos um resultado
 			if(count($results) > 0){
 				$this->setDatas($results[0]);
-				}  else{
+				}  else	{
 						throw new Exception("Login e/ou senha invalidos");
 					}
 		}
@@ -86,25 +85,29 @@ class Usuario {
 			if(count($results) > 0){
 				$this->setDatas($results[0]);
 		}
+return $results;
 	}
 
 	public function update($login, $password){
-		
+
 		$this->setDeslogin($login);
 		$this->setDessenha($password);
+		$this->getIdusuario();
 		$sql = new Sql();
-		$sql->query("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(
+		 //var_dump($sql, $login, $password, $this->getIdusuario());
+		 //exit;
+		$sql->run("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(
 			':LOGIN'=>$this->getDeslogin(),
 			':PASSWORD'=>$this->getDessenha(),
 			':ID'=>$this->getIdusuario()
-		) );
+		));
 
 	}
 
 	public function delete(){
 		$sql = new Sql();
 
-		$sql->query("DELETE FROM  tb_usuarios WHERE idusuario = :ID ", array(
+		$sql->run("DELETE FROM  tb_usuarios WHERE idusuario = :ID ", array(
 			':ID'=> $this->getIdusuario()
 		));
 

@@ -8,8 +8,8 @@ private $ano;
 
     public function getModelo(){ return $this->modelo;   }
     public function setModelo($modelo){ $this->modelo = $modelo; }
-
-    public function getMotor():float{ return $this->motor; }
+//$valor_float = floatval ($variavel);
+    public function getMotor(){ return floatval($this->motor); }
     public function setMotor($motor){$this->motor = $motor;}
 
     public function getAno():int{ return $this->ano; }
@@ -27,7 +27,7 @@ private $ano;
         
 $logan = new Carro();
 $logan->setModelo("Logan sedan");
-$logan->setMotor("1.6CC 16v");
+$logan->setMotor("1.6 CC 16v");
 $logan->setAno("2017");
 
 echo "Com print_r<br>";

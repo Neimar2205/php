@@ -10,7 +10,7 @@ class Pessoa{
     }
 }
 
-$neimar = new Pessoa; // Instancia a o objeto
+$neimar = new Pessoa(); // Instancia a o objeto
 $neimar->nome = "Neimar Silva";// Coloca o nome no atributo $nome;
 echo $neimar->falar(); // invoca o metodo/açao falar() do objeto instanciado
 

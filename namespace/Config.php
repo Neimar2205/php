@@ -2,7 +2,8 @@
 spl_autoload_register(function($nameClass){
  
     var_dump($nameClass);
-
+    
+    //O valor dessa variável é o nome da pasta onde estarão as subpasta com suas respctivas Classes
     $dirClass = "class";
 
     ////para configuracao do path no SO Windowns

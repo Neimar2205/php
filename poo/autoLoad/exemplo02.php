@@ -7,7 +7,7 @@ function incluirClasses ($nomeClasses){
     }
 }
 
-// Crinado uma funçao a parti e invocando esta no parametro da sql_autoload_register.
+//1º Crinado uma funçao a parte e invocando esta no parametro da sql_autoload_register.
 spl_autoload_register("incluirClasses");
 
 // 2º Passando uma funçao direta como parametro da sql_autoload_register
@@ -17,12 +17,12 @@ spl_autoload_register(function($nomeClasses){
     }
 
 });
-    
+
     $carro = new DelRey();
-    
-    $carro->acelerar(80); 
-    
-    
+
+    $carro->acelerar(80);
+
+
 
 
 ?>

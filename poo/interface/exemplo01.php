@@ -1,6 +1,6 @@
 <?php
-// Uma INTERFACE sereve como um contrato com uma classe.
-// A INTERFACE determina o que e preciso ser feito, mas no diz como deve ser feito.
+// Uma INTERFACE serve como um contrato com uma classe.
+// A INTERFACE determina o que e preciso ser feito, mas não diz como deve ser feito.
 //Todos os metodos declarados na INTERFACE precisam ser implementados nas classes com a mesma assinatura.
 
 
